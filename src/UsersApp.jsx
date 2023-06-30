@@ -5,6 +5,7 @@ import { UsersList } from './components/UsersList';
 
 
 function UsersApp() {
+  //arreglo de usuarios inicial que se pasa a componente UserList
   const initialUsers = [
     {
       id:1,
@@ -13,6 +14,8 @@ function UsersApp() {
       email: 'pepe@correo.com'
     },
   ]
+
+//vista de la tabla de ususarios y formulario de usuarios
 
   return (
     <>

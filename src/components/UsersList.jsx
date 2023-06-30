@@ -1,6 +1,8 @@
 import { UserRow } from "./UserRow";
 
-export function UsersList({users = []}) {    
+export function UsersList({users = []}) { 
+    //se recibe por prop el arreglo de usuarios iniciales y se muestra en la tabla
+    //se manda por prop el listado de usuarios recibidos para renderizar UserRow  
     
     return (
         <>           

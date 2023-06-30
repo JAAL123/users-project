@@ -1,4 +1,5 @@
 export function UserRow({id,username,email}) {
+    //se recibe por prop  el id,nombre de usuario, y correo
     return (
         <tr>
             <td>{id}</td>
