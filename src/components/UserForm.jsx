@@ -60,7 +60,7 @@ export function UserForm() {
                             type="button"
                             onClick={switchShown}
                         >
-                            Mostrar
+                            {shown ? 'Ocultar' : 'Mostrar'}
                         </button>
                     </div>
                 </div>
