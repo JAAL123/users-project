@@ -1,6 +1,6 @@
 import { UserRow } from "./UserRow";
 
-export function UsersList({users = []}) { 
+export function UsersList({users = [], handlerRemoveUser}) { 
     //se recibe por prop el arreglo de usuarios iniciales y se muestra en la tabla
     //se manda por prop el listado de usuarios recibidos para renderizar UserRow  
     
@@ -19,7 +19,13 @@ export function UsersList({users = []}) {
                 <tbody>
                     {
                         users.map(user => (
-                            <UserRow key={user.id} id={user.id} username={user.username} email={user.email}/>        
+                            <UserRow 
+                                key={user.id} 
+                                id={user.id} 
+                                username={user.username} 
+                                email={user.email} 
+                                handlerRemoveUser={handlerRemoveUser}
+                            />        
                         ))
                     }
                 

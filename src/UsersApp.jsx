@@ -27,6 +27,13 @@ function UsersApp() {
     })
   }
 
+  const handlerRemoveUser = (id) => {
+    dispatch({
+      type:'removeUser',
+      payload: id, 
+    })
+  }
+
 
 //vista de la tabla de ususarios y formulario de usuarios
   return (
@@ -36,12 +43,13 @@ function UsersApp() {
         <div className='row mt-2'>
         <div className='col'>
           <UserForm
-            handlerAddUser={handlerAddUser}
+            handlerAddUser={handlerAddUser}            
           />
         </div>
         <div className='col'>
           <UsersList 
             users={users}
+            handlerRemoveUser={handlerRemoveUser}
           />
         </div>
         </div>

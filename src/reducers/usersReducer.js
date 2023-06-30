@@ -1,7 +1,6 @@
 export function usersReducer(state = [], action) {
     switch (action.type) {
         case 'addUser':
-
             return[
                 ...state,
                 {
@@ -10,6 +9,9 @@ export function usersReducer(state = [], action) {
                     
                 }
             ];
+        case 'removeUser':
+            return state.filter(user => user.id !== action.payload)
+
         default:
             return state;
     }
