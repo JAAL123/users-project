@@ -6,7 +6,7 @@ const initialUserForm = {
     email: '',
 }
 
-export function UserForm() {
+export function UserForm({handlerAddUser}) {
 
     //estado para controlar visibilidad de contraseña
     const [shown, setShown] = useState(false)
@@ -33,7 +33,7 @@ export function UserForm() {
         if(!username || !password || !email){
             alert('completar los campos')
         }
-        console.log(userForm)
+        handlerAddUser(userForm)
         setUserForm(initialUserForm)
     } 
     return (

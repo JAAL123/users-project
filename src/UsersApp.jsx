@@ -1,10 +1,8 @@
+import { useReducer } from 'react';
 import './App.css'
 import { UserForm } from './components/UserForm';
 import { UsersList } from './components/UsersList';
-
-
-
-function UsersApp() {
+import { usersReducer } from './reducers/usersReducer';
   //arreglo de usuarios inicial que se pasa a componente UserList
   const initialUsers = [
     {
@@ -15,18 +13,36 @@ function UsersApp() {
     },
   ]
 
-//vista de la tabla de ususarios y formulario de usuarios
 
+
+function UsersApp() {
+
+  const [users, dispatch] = useReducer(usersReducer, initialUsers)
+
+  const handlerAddUser = (user) => {
+   
+    dispatch({
+      type: 'addUser',
+      payload: user,
+    })
+  }
+
+
+//vista de la tabla de ususarios y formulario de usuarios
   return (
     <>
       <div className="container my-4">
         <h1>App de ususarios</h1>
         <div className='row mt-2'>
         <div className='col'>
-          <UserForm/>
+          <UserForm
+            handlerAddUser={handlerAddUser}
+          />
         </div>
         <div className='col'>
-          <UsersList users={initialUsers}/>
+          <UsersList 
+            users={users}
+          />
         </div>
         </div>
       </div>
