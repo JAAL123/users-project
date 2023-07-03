@@ -12,6 +12,15 @@ export function usersReducer(state = [], action) {
                     
                 }
             ];
+        case 'updateUser' :
+            return state.map(u => {
+                if(u.id === action.payload.id){
+                    return {
+                        ...action.payload
+                    }
+                }
+                return u
+            })
         //maneja el estado para eliminar un registro, utiliza la funcion filter para que del arreglo de objetos
         //retorne una copia de todos los objetos filtrados que tengan distinto id al seleccionado
         case 'removeUser':

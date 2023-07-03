@@ -13,6 +13,7 @@ const initialUsers = [
   },
 ]
 const initialUserForm = {
+  id: 0,
   username: '',
   password: '',
   email: '',
@@ -23,15 +24,20 @@ const initialUserForm = {
 function UsersApp() {
 
   const [users, dispatch] = useReducer(usersReducer, initialUsers)
+  //estado para manejar usuarios seleccionados
   const [userSelected, setUserSelected] = useState(initialUserForm)
 
-  //
 
   //funcion que se manda al reducer y recibe como parametro el objeto usuario
   const handlerAddUser = (user) => {
-
+    let type;
+    if(user.id === 0 ){
+      type = 'addUser'
+    }else{
+      type= 'updateUser'
+    }
     dispatch({
-      type: 'addUser',
+      type,
       payload: user,
     })
   }
@@ -56,14 +62,14 @@ function UsersApp() {
       <div className="container my-4">
         <h1>App de ususarios</h1>
         <div className='row mt-2'>
-          <div className='col'>
+          <div className='col-5'>
             <UserForm
               handlerAddUser={handlerAddUser}
               userSelected={userSelected}
               initialUserForm={initialUserForm}
             />
           </div>
-          <div className='col'>
+          <div className='col-7'>
             {
               users.length === 0 ?
                 <div className='alert alert-warning my-3 text-center'>No hay usuarios en el sistema</div>

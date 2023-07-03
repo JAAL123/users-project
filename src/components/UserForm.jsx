@@ -7,13 +7,13 @@ export function UserForm({handlerAddUser,initialUserForm,userSelected}) {
     //estado para controlar inputs del form
     const [userForm, setUserForm] =useState(initialUserForm)
     //datos desestructurados del arreglo para el form 
-    const {username,email,password} = userForm
+    const {id,username,email,password} = userForm
     //funcion que controla visibilidad de contraseña
 
+    //useEffect para verificar si se selecciona un usuario
     useEffect(()=>{
         setUserForm({
-            ...userSelected,
-            // password: ''
+            ...userSelected,            
         })
     },[userSelected])
 
@@ -73,7 +73,7 @@ export function UserForm({handlerAddUser,initialUserForm,userSelected}) {
                 </div>
                 <div className="row g-3 m-3 align-items-center ">
                     <div className="col-auto w-25">
-                        <label htmlFor="" className="col-form-label">Contraseña: </label>
+                        <label htmlFor="" className="col-form-label ">Contraseña: </label>
                     </div>
                     <div className="col-auto w-75 input-group" >
                         <input 
@@ -83,6 +83,11 @@ export function UserForm({handlerAddUser,initialUserForm,userSelected}) {
                             className="form-control" 
                             placeholder="Contraseña"
                             onChange={onInputChange}
+                        />
+                        <input 
+                            type="hidden" 
+                            name="id"
+                            value={id} 
                         />
                         <button 
                             className="btn btn-outline-secondary" 
@@ -95,7 +100,12 @@ export function UserForm({handlerAddUser,initialUserForm,userSelected}) {
                 </div>
                 <div className="row g-3 m-3" >
                     <div className="col-auto">
-                        <button type="submit" className="btn btn-primary" >Crear Usuario</button>
+                        <button type="submit" className="btn btn-primary" >
+                            {
+                                id > 0 ? 'Editar'
+                                : 'Crear'
+                            }
+                        </button>
                     </div>
                 </div>
             </form>
