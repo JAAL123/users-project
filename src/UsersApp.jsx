@@ -21,14 +21,14 @@ function UsersApp() {
       <div className="container-fluid my-4">
         <h1>App de ususarios</h1>
         <div className='row mt-2'>
-          <div className='col-lg-auto'>
+          <div className='col-lg'>
             <UserForm
               handlerAddUser={handlerAddUser}
               userSelected={userSelected}
               initialUserForm={initialUserForm}
             />
           </div>
-          <div className='col-lg-auto'>
+          <div className='col-lg'>
             {
               users.length === 0 ?
                 <div className='alert alert-warning my-3 text-center'>No hay usuarios en el sistema</div>
