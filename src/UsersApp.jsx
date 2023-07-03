@@ -12,6 +12,11 @@ import { usersReducer } from './reducers/usersReducer';
       email: 'pepe@correo.com'
     },
   ]
+  const initialUserForm = {
+    username: '',
+    password: '',
+    email: '',
+}
 
 
 
@@ -27,6 +32,7 @@ function UsersApp() {
     })
   }
 
+  //funcion que se manda al reducer y recibe como parametro un id
   const handlerRemoveUser = (id) => {
     dispatch({
       type:'removeUser',
@@ -43,7 +49,8 @@ function UsersApp() {
         <div className='row mt-2'>
         <div className='col'>
           <UserForm
-            handlerAddUser={handlerAddUser}            
+            handlerAddUser={handlerAddUser}  
+            initialUserForm={initialUserForm}          
           />
         </div>
         <div className='col'>

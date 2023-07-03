@@ -1,5 +1,10 @@
 export function UserRow({id,username,email,handlerRemoveUser}) {
     //se recibe por prop  el id,nombre de usuario, y correo
+    //se recibe por prop la funcion handlerRemoveUser
+
+
+    //funcion que se ejecuta al darle click en el boton eliminar, recibe por parametro el id del registro,
+    //ejecuta la funcion handlerRemoveUser con el id seleccionado
     const onRemoveUser = (id) => {
         handlerRemoveUser(id)
     }

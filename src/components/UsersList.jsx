@@ -3,6 +3,9 @@ import { UserRow } from "./UserRow";
 export function UsersList({users = [], handlerRemoveUser}) { 
     //se recibe por prop el arreglo de usuarios iniciales y se muestra en la tabla
     //se manda por prop el listado de usuarios recibidos para renderizar UserRow  
+
+    //se recibe por prop la funcion handlerRemoveUser la cual se pasa hacia el componente
+    //UserRow
     
     return (
         <>           

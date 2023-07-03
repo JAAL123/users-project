@@ -1,12 +1,6 @@
 import { useState } from "react"
 
-const initialUserForm = {
-    username: '',
-    password: '',
-    email: '',
-}
-
-export function UserForm({handlerAddUser}) {
+export function UserForm({handlerAddUser,initialUserForm}) {
 
     //estado para controlar visibilidad de contraseña
     const [shown, setShown] = useState(false)
