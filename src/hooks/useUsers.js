@@ -22,17 +22,13 @@ export const useUsers = () => {
   const [users, dispatch] = useReducer(usersReducer, initialUsers)
   //estado para manejar usuarios seleccionados
   const [userSelected, setUserSelected] = useState(initialUserForm)
+  //estado para visibilidad del form
+  const [formIsVisible, setFormIsVisible] = useState(false)
 
   //funcion que se manda al reducer y recibe como parametro el objeto usuario
   const handlerAddUser = (user) => {
-    let type;
-    if (user.id === 0) {
-      type = 'addUser'
-    } else {
-      type = 'updateUser'
-    }
     dispatch({
-      type,
+      type: (user.id === 0) ? 'addUser' : 'updateUser' ,
       payload: user,
     })
     Swal.fire(
@@ -40,6 +36,8 @@ export const useUsers = () => {
       (user.id === 0) ? 'EL usuario a sido creado con exito' : 'EL usuario a sido actualizado con exito',
       'success'
     )
+    setFormIsVisible(false)
+    setUserSelected(initialUserForm)
   }
 
   //funcion que se manda al reducer y recibe como parametro un id
@@ -71,15 +69,31 @@ export const useUsers = () => {
 
   //funcion para selecionar un usuario y recuperar los datos para hacer un update
   const handlerSelectedUser = (user) => {
+    setFormIsVisible(true)
     setUserSelected({ ...user })
   }
+
+  //funcion para abrir form
+  const handlerOpenForm = () =>{
+    setFormIsVisible(true)
+  }
+  //funcion para cerrar form
+  const handlerCloseForm = () => {
+    setFormIsVisible(false)
+    setUserSelected(initialUserForm)
+  }
+
+
   return {
     users,
     userSelected,
     initialUserForm,
+    formIsVisible,
 
     handlerAddUser,
     handlerRemoveUser,
     handlerSelectedUser,
+    handlerOpenForm,
+    handlerCloseForm,
   }
 }

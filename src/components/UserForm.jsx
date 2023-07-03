@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import Swal from "sweetalert2"
 
-export function UserForm({ handlerAddUser, initialUserForm, userSelected }) {
+export function UserForm({ handlerAddUser, initialUserForm, userSelected, handlerCloseForm }) {
 
     //estado para controlar visibilidad de contraseña
     const [shown, setShown] = useState(false)
@@ -9,7 +9,6 @@ export function UserForm({ handlerAddUser, initialUserForm, userSelected }) {
     const [userForm, setUserForm] = useState(initialUserForm)
     //datos desestructurados del arreglo para el form 
     const { id, username, email, password } = userForm
-    //funcion que controla visibilidad de contraseña
 
     //useEffect para verificar si se selecciona un usuario
     useEffect(() => {
@@ -17,7 +16,7 @@ export function UserForm({ handlerAddUser, initialUserForm, userSelected }) {
             ...userSelected,
         })
     }, [userSelected])
-
+    //funcion que controla visibilidad de contraseña
     const switchShown = () => {
         setShown(!shown)
     }
@@ -37,8 +36,8 @@ export function UserForm({ handlerAddUser, initialUserForm, userSelected }) {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Los campos deben estar completos',                
-              })
+                text: 'Los campos deben estar completos',
+            })
             return
         }
         handlerAddUser(userForm)
@@ -111,12 +110,22 @@ export function UserForm({ handlerAddUser, initialUserForm, userSelected }) {
                     <div className="col-auto">
                         <button type="submit" className="btn btn-primary" >
                             {
-                                id > 0 ? 'Editar'
+                                id > 0 ? 'Actualizar'
                                     : 'Crear'
                             }
                         </button>
                     </div>
+                    <div className="col-auto">
+                        <button
+                            className='btn btn-primary mx-2'
+                            type="button"
+                            onClick={handlerCloseForm}
+                        >
+                            Cerrar
+                        </button>
+                    </div>
                 </div>
+
             </form>
         </>
     )
