@@ -1,4 +1,4 @@
-import { useReducer } from 'react';
+import { useReducer, useState } from 'react';
 import './App.css'
 import { UserForm } from './components/UserForm';
 import { UsersList } from './components/UsersList';
@@ -23,7 +23,11 @@ const initialUserForm = {
 function UsersApp() {
 
   const [users, dispatch] = useReducer(usersReducer, initialUsers)
+  const [userSelected, setUserSelected] = useState(initialUserForm)
 
+  //
+
+  //funcion que se manda al reducer y recibe como parametro el objeto usuario
   const handlerAddUser = (user) => {
 
     dispatch({
@@ -40,6 +44,11 @@ function UsersApp() {
     })
   }
 
+  //funcion para selecionar un usuario y recuperar los datos para hacer un update
+  const handlerSelectedUser = (user) => {
+    setUserSelected({...user})    
+  }
+
 
   //vista de la tabla de ususarios y formulario de usuarios
   return (
@@ -50,6 +59,7 @@ function UsersApp() {
           <div className='col'>
             <UserForm
               handlerAddUser={handlerAddUser}
+              userSelected={userSelected}
               initialUserForm={initialUserForm}
             />
           </div>
@@ -61,6 +71,7 @@ function UsersApp() {
                 <UsersList
                   users={users}
                   handlerRemoveUser={handlerRemoveUser}
+                  handlerSelectedUser={handlerSelectedUser}
                 />
             }
           </div>

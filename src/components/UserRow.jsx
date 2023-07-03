@@ -1,4 +1,4 @@
-export function UserRow({id,username,email,handlerRemoveUser}) {
+export function UserRow({ id, username, email,password, handlerRemoveUser, handlerSelectedUser }) {
     //se recibe por prop  el id,nombre de usuario, y correo
     //se recibe por prop la funcion handlerRemoveUser
 
@@ -13,8 +13,29 @@ export function UserRow({id,username,email,handlerRemoveUser}) {
             <td>{id}</td>
             <td>{username}</td>
             <td>{email}</td>
-            <td><button className="btn btn-warning" type="button">Editar</button></td>
-            <td><button className="btn btn-danger" type="button" onClick={() => onRemoveUser(id)}>Eliminar</button></td>
+            <td>
+                <button
+                    className="btn btn-warning"
+                    type="button"
+                    onClick={() => handlerSelectedUser({
+                        id,
+                        username,
+                        email,
+                        password,
+                    })}
+                >
+                    Editar
+                </button>
+            </td>
+            <td>
+                <button
+                    className="btn btn-danger"
+                    type="button" 
+                    onClick={() => onRemoveUser(id)}
+                >
+                    Eliminar
+                </button>
+            </td>
         </tr>
     )
 }

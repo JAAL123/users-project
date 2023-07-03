@@ -1,6 +1,6 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
-export function UserForm({handlerAddUser,initialUserForm}) {
+export function UserForm({handlerAddUser,initialUserForm,userSelected}) {
 
     //estado para controlar visibilidad de contraseña
     const [shown, setShown] = useState(false)
@@ -9,6 +9,14 @@ export function UserForm({handlerAddUser,initialUserForm}) {
     //datos desestructurados del arreglo para el form 
     const {username,email,password} = userForm
     //funcion que controla visibilidad de contraseña
+
+    useEffect(()=>{
+        setUserForm({
+            ...userSelected,
+            // password: ''
+        })
+    },[userSelected])
+
     const switchShown = () => {
         setShown(!shown)
     }

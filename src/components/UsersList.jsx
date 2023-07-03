@@ -1,6 +1,6 @@
 import { UserRow } from "./UserRow";
 
-export function UsersList({users = [], handlerRemoveUser}) { 
+export function UsersList({users = [], handlerRemoveUser, handlerSelectedUser}) { 
     //se recibe por prop el arreglo de usuarios iniciales y se muestra en la tabla
     //se manda por prop el listado de usuarios recibidos para renderizar UserRow  
 
@@ -26,8 +26,10 @@ export function UsersList({users = [], handlerRemoveUser}) {
                                 key={user.id} 
                                 id={user.id} 
                                 username={user.username} 
+                                password={user.password}
                                 email={user.email} 
                                 handlerRemoveUser={handlerRemoveUser}
+                                handlerSelectedUser={handlerSelectedUser}
                             />        
                         ))
                     }
