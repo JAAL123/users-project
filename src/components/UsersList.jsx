@@ -25,8 +25,7 @@ export function UsersList({users = [], handlerRemoveUser, handlerSelectedUser}) 
                             <UserRow 
                                 key={user.id} 
                                 id={user.id} 
-                                username={user.username} 
-                                password={user.password}
+                                username={user.username}                                 
                                 email={user.email} 
                                 handlerRemoveUser={handlerRemoveUser}
                                 handlerSelectedUser={handlerSelectedUser}

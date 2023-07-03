@@ -59,17 +59,17 @@ function UsersApp() {
   //vista de la tabla de ususarios y formulario de usuarios
   return (
     <>
-      <div className="container my-4">
+      <div className="container-fluid my-4">
         <h1>App de ususarios</h1>
         <div className='row mt-2'>
-          <div className='col-5'>
+          <div className='col'>
             <UserForm
               handlerAddUser={handlerAddUser}
               userSelected={userSelected}
               initialUserForm={initialUserForm}
             />
           </div>
-          <div className='col-7'>
+          <div className='col'>
             {
               users.length === 0 ?
                 <div className='alert alert-warning my-3 text-center'>No hay usuarios en el sistema</div>

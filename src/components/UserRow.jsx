@@ -1,4 +1,4 @@
-export function UserRow({ id, username, email,password, handlerRemoveUser, handlerSelectedUser }) {
+export function UserRow({ id, username, email,handlerRemoveUser, handlerSelectedUser }) {
     //se recibe por prop  el id,nombre de usuario, y correo
     //se recibe por prop la funcion handlerRemoveUser
 
@@ -20,8 +20,7 @@ export function UserRow({ id, username, email,password, handlerRemoveUser, handl
                     onClick={() => handlerSelectedUser({
                         id,
                         username,
-                        email,
-                        password,
+                        email,                        
                     })}
                 >
                     Editar
