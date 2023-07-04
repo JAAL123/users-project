@@ -33,7 +33,7 @@ export const useUsers = () => {
     })
     Swal.fire(
       (user.id === 0) ? 'Usuario Creado' : 'Usuario Actualizado',
-      (user.id === 0) ? 'EL usuario a sido creado con exito' : 'EL usuario a sido actualizado con exito',
+      (user.id === 0) ? 'El usuario a sido creado con exito' : 'El usuario ha sido actualizado con exito',
       'success'
     )
     setFormIsVisible(false)
