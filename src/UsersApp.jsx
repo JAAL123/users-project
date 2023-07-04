@@ -1,5 +1,6 @@
 import './Styles.css'
 import { UserForm } from './components/UserForm';
+import { USerModalForm } from './components/UserModalForm';
 import { UsersList } from './components/UsersList';
 import { useUsers } from './hooks/useUsers';
 
@@ -23,25 +24,12 @@ function UsersApp() {
     <>
       {
         !formIsVisible ||
-        <div className="abrir-modal animacion fadeIn">
-          <div className="modal" tabIndex="-1" style={{display: "block"}}>
-            <div className="modal-dialog" role='document'>
-              <div className="modal-content">
-                <div className="modal-header">
-                  <h5 className="modal-title">{userSelected > 0 ? 'Editar' : 'Agregar'} Usuarios</h5>
-                </div>
-                <div className="modal-body">
-                  <UserForm
-                    handlerAddUser={handlerAddUser}
-                    userSelected={userSelected}
-                    initialUserForm={initialUserForm}
-                    handlerCloseForm={handlerCloseForm}
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <USerModalForm
+          handlerAddUser={handlerAddUser}
+          userSelected={userSelected}
+          initialUserForm={initialUserForm}
+          handlerCloseForm={handlerCloseForm}
+        />
       }
       <div className="container-fluid my-4">
         <h1>App de Usuarios</h1>
