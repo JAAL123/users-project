@@ -1,6 +1,7 @@
 import { useReducer, useState } from "react"
 import { usersReducer } from "../reducers/usersReducer"
 import Swal from "sweetalert2"
+import { useNavigate } from "react-router-dom"
 //arreglo de usuarios inicial que se pasa a componente UserList
 const initialUsers = [
   {
@@ -25,6 +26,8 @@ export const useUsers = () => {
   //estado para visibilidad del form
   const [formIsVisible, setFormIsVisible] = useState(false)
 
+  const navigate = useNavigate()
+
   //funcion que se manda al reducer y recibe como parametro el objeto usuario
   const handlerAddUser = (user) => {
     dispatch({
@@ -38,6 +41,7 @@ export const useUsers = () => {
     )
     setFormIsVisible(false)
     setUserSelected(initialUserForm)
+    navigate('/users')
   }
 
   //funcion que se manda al reducer y recibe como parametro un id
