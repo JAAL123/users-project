@@ -28,8 +28,7 @@ export function UserPage() {
               handlerCloseForm={handlerCloseForm}
             />
           }
-          <div className="container-fluid my-4">
-            <h1>App de Usuarios</h1>
+          <div className="container-fluid my-4">            
             <div className='row mt-2'>
               <div className='col-lg'>
                 {

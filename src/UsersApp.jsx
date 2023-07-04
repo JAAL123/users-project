@@ -4,6 +4,7 @@ import { LoginPage } from './auth/pages/LoginPage';
 import { UserPage } from './pages/UserPage';
 import { loginReducer } from './auth/reducers/LoginReducer';
 import Swal from 'sweetalert2';
+import { Navbar } from './components/Navbar';
 
 const initialLogin = JSON.parse(sessionStorage.getItem('login')) || {
   isAuth: false,
@@ -36,10 +37,22 @@ function UsersApp() {
     }
   }
 
+  const handlerLogout = () => {
+    dispatch({
+      type:'logout',      
+    })
+    sessionStorage.removeItem('login');
+  }
+
   return (
     <>
       {
-        login.isAuth ? <UserPage />
+        login.isAuth ? (
+          <>
+            <Navbar handlerLogout={handlerLogout} login={login}/>
+            <UserPage />
+          </>
+        )
           : <LoginPage handlerLogin={handlerLogin} />
       }
     </>

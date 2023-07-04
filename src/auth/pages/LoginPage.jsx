@@ -69,7 +69,7 @@ export function LoginPage({handlerLogin}) {
                                     className="btn btn-primary" 
                                     data-bs-dismiss="modal"
                                 >
-                                    Login
+                                    Iniciar Sesión
                                 </button>
                             </div>
                         </form>
