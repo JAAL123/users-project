@@ -1,4 +1,4 @@
-import './App.css'
+import './Styles.css'
 import { UserForm } from './components/UserForm';
 import { UsersList } from './components/UsersList';
 import { useUsers } from './hooks/useUsers';
@@ -15,28 +15,37 @@ function UsersApp() {
     handlerRemoveUser,
     handlerSelectedUser,
     handlerOpenForm,
-    handlerCloseForm,    
+    handlerCloseForm,
   } = useUsers()
 
   //vista de la tabla de ususarios y formulario de usuarios
   return (
     <>
+      {
+        !formIsVisible ||
+        <div className="abrir-modal animacion fadeIn">
+          <div className="modal" tabIndex="-1" style={{display: "block"}}>
+            <div className="modal-dialog" role='document'>
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h5 className="modal-title">{userSelected > 0 ? 'Editar' : 'Agregar'} Usuarios</h5>
+                </div>
+                <div className="modal-body">
+                  <UserForm
+                    handlerAddUser={handlerAddUser}
+                    userSelected={userSelected}
+                    initialUserForm={initialUserForm}
+                    handlerCloseForm={handlerCloseForm}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
       <div className="container-fluid my-4">
         <h1>App de Usuarios</h1>
         <div className='row mt-2'>
-          
-            {
-              !formIsVisible ||
-              <div className='col-lg'>
-               <UserForm
-                handlerAddUser={handlerAddUser}
-                userSelected={userSelected}
-                initialUserForm={initialUserForm}
-                handlerCloseForm={handlerCloseForm}
-              />
-              </div>
-            }
-          
           <div className='col-lg'>
             {
               formIsVisible || <button
