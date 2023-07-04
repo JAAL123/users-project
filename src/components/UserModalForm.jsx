@@ -8,7 +8,7 @@ export function USerModalForm({handlerAddUser, userSelected,initialUserForm,hand
                     <div className="modal-dialog" role='document'>
                         <div className="modal-content">
                             <div className="modal-header">
-                                <h5 className="modal-title">{userSelected > 0 ? 'Editar' : 'Agregar'} Usuarios</h5>
+                                <h5 className="modal-title">{userSelected.id > 0 ? 'Editar' : 'Agregar'} Usuarios</h5>
                             </div>
                             <div className="modal-body">
                                 <UserForm
