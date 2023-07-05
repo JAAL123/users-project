@@ -115,15 +115,17 @@ export function UserForm({ handlerAddUser, initialUserForm, userSelected, handle
                             }
                         </button>
                     </div>
-                    <div className="col-auto">
-                        <button
-                            className='btn btn-primary mx-2'
-                            type="button"
-                            onClick={handlerCloseForm}
-                        >
-                            Cerrar
-                        </button>
-                    </div>
+                    {
+                        handlerCloseForm && <div className="col-auto">
+                            <button
+                                className='btn btn-primary mx-2'
+                                type="button"
+                                onClick={handlerCloseForm}
+                            >
+                                Cerrar
+                            </button>
+                        </div>
+                    }
                 </div>
 
             </form>
