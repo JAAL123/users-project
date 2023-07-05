@@ -1,8 +1,12 @@
+import { useContext } from "react"
 import { NavLink } from "react-router-dom"
+import { UserContext } from "../context/UserContext"
 
-export function UserRow({ id, username, email,handlerRemoveUser, handlerSelectedUser }) {
+export function UserRow({ id, username, email }) {
     //se recibe por prop  el id,nombre de usuario, y correo
     //se recibe por prop la funcion handlerRemoveUser
+
+    const {handlerRemoveUser, handlerSelectedUser} = useContext(UserContext)
 
 
     //funcion que se ejecuta al darle click en el boton eliminar, recibe por parametro el id del registro,

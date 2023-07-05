@@ -23,7 +23,7 @@ export function LoginPage({handlerLogin}) {
     const onFormSubmit = (event) => {
         event.preventDefault()
         //validacion de campos
-        if(!username || !password){
+        if(username === '' || password === ''){
             Swal.fire(
                 'Error de validacion',
                 'Usuario y Contraseña requeridos',

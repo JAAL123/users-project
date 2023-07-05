@@ -1,7 +1,10 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import Swal from "sweetalert2"
+import { UserContext } from "../context/UserContext"
 
-export function UserForm({ handlerAddUser, initialUserForm, userSelected, handlerCloseForm }) {
+export function UserForm({ userSelected, handlerCloseForm }) {
+
+    const {initialUserForm, handlerAddUser,} = useContext(UserContext)
 
     //estado para controlar visibilidad de contraseña
     const [shown, setShown] = useState(false)

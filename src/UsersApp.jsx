@@ -1,7 +1,5 @@
 import './Styles.css'
 import { LoginPage } from './auth/pages/LoginPage';
-import { UserPage } from './pages/UserPage';
-import { Navbar } from './components/Navbar';
 import { useAuth } from './auth/hooks/useAuth';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { UserRoutes } from './routes/UserRoutes';

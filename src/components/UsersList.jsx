@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import { UserRow } from "./UserRow";
+import { UserContext } from "../context/UserContext";
 
-export function UsersList({users = [], handlerRemoveUser, handlerSelectedUser}) { 
+export function UsersList() { 
+
+    const {users = []} = useContext(UserContext)
     //se recibe por prop el arreglo de usuarios iniciales y se muestra en la tabla
     //se manda por prop el listado de usuarios recibidos para renderizar UserRow  
 
@@ -28,8 +32,6 @@ export function UsersList({users = [], handlerRemoveUser, handlerSelectedUser}) 
                                 id={user.id} 
                                 username={user.username}                                 
                                 email={user.email} 
-                                handlerRemoveUser={handlerRemoveUser}
-                                handlerSelectedUser={handlerSelectedUser}
                             />        
                         ))
                     }
