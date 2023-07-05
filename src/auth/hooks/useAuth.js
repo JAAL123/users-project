@@ -1,5 +1,5 @@
 import { useReducer } from "react"
-import { loginReducer } from "../reducers/LoginReducer"
+import { loginReducer } from "../reducers/loginReducer"
 import Swal from "sweetalert2"
 import { useNavigate } from "react-router-dom"
 

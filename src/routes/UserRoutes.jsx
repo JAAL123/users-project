@@ -3,14 +3,18 @@ import { UserPage } from "../pages/UserPage"
 import { Navbar } from "../components/Navbar";
 import { RegisterPage } from "../pages/RegisterPage";
 import { UserProvider } from "../context/UserProvider";
+import { useContext } from "react";
+import { AuthContext } from "../auth/Context/AuthContext";
 
 
-export function UserRoutes({ login, handlerLogout }) {
+export function UserRoutes() {
+
+    const { login, handlerLogout } = useContext(AuthContext)
 
     return (
         <>
             <UserProvider>
-                <Navbar handlerLogout={handlerLogout} login={login} />
+                <Navbar/>
 
                 <Routes>
                     <Route path="users" element={<UserPage/>} />
