@@ -1,4 +1,4 @@
-import { Navigate, Route, Routes, } from "react-router-dom";
+import { HashRouter, Navigate, Route, Routes, } from "react-router-dom";
 import { UserPage } from "../pages/UserPage"
 import { Navbar } from "../components/Navbar";
 import { RegisterPage } from "../pages/RegisterPage";
