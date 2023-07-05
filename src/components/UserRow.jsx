@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom"
+
 export function UserRow({ id, username, email,handlerRemoveUser, handlerSelectedUser }) {
     //se recibe por prop  el id,nombre de usuario, y correo
     //se recibe por prop la funcion handlerRemoveUser
@@ -26,6 +28,7 @@ export function UserRow({ id, username, email,handlerRemoveUser, handlerSelected
                     Editar
                 </button>
             </td>
+
             <td>
                 <button
                     className="btn btn-danger"
@@ -34,6 +37,14 @@ export function UserRow({ id, username, email,handlerRemoveUser, handlerSelected
                 >
                     Eliminar
                 </button>
+            </td>
+            <td>
+                <NavLink 
+                    className={'btn btn-secondary btn-sm my-1'}
+                    to={'/users/edit/'+ id}
+                >
+                    Actualizar Ruta
+                </NavLink>
             </td>
         </tr>
     )

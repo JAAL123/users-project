@@ -15,8 +15,9 @@ export function UsersList({users = [], handlerRemoveUser, handlerSelectedUser}) 
                         <th>#</th>
                         <th>Usuario</th>
                         <th>Correo</th>
-                        <th>Eliminar</th>
                         <th>Editar</th>
+                        <th>Eliminar</th>
+                        <th>Editar por ruta</th>
                     </tr>
                 </thead>
                 <tbody>

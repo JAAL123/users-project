@@ -15,13 +15,13 @@ export function UserRoutes({ login, handlerLogout }) {
         handlerSelectedUser,
         handlerOpenForm,
         handlerCloseForm,
-      } = useUsers()
+    } = useUsers()
     return (
         <>
             <Navbar handlerLogout={handlerLogout} login={login} />
 
             <Routes>
-                <Route path="users" element={<UserPage 
+                <Route path="users" element={<UserPage
                     users={users}
                     userSelected={userSelected}
                     initialUserForm={initialUserForm}
@@ -36,6 +36,15 @@ export function UserRoutes({ login, handlerLogout }) {
                     path="users/register"
                     element={
                         <RegisterPage
+                            handlerAddUser={handlerAddUser}
+                            initialUserForm={initialUserForm} />
+                    }
+                />
+                <Route
+                    path="users/edit/:id"
+                    element={
+                        <RegisterPage
+                            users={users}
                             handlerAddUser={handlerAddUser}
                             initialUserForm={initialUserForm} />
                     }
